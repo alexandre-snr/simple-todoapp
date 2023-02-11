@@ -1,5 +1,4 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import cors from 'cors';
 import { prisma } from './database';
 import routes from './routes';
@@ -7,8 +6,9 @@ import routes from './routes';
 const main = async () => {
   const app = express();
 
-  app.use(bodyParser.json());
+  app.use(express.json());
   app.use(cors());
+  app.use(express.static('public'));
   app.get('/students', routes.listStudents);
   app.post('/student', routes.createStudent);
 
