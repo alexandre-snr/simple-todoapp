@@ -53,7 +53,7 @@ const CreateStudentForm: React.FC = () => {
       })
     });
     const body = await result.json();
-    console.log(body);
+
     if (body.errors) {
       setErrors(body.errors);
     } else {
